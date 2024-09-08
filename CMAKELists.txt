@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(CPP-JSON VERSION 0.1.0 LANGUAGES C CXX)
 
-include_directories(./src)
+include_directories(./lib_src)
 add_executable(json_main ./main/main.cpp)
 
 
