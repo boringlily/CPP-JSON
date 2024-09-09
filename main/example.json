@@ -1,0 +1,20 @@
+{
+ "num_u": 34,
+ "num_i":  -200,
+ "object": {
+    "number": 27,
+    "string" : "hello friend"
+ },
+ "object_array":[
+    {
+        "name":"object_1",
+        "var": 101
+    },
+    {
+        "name":"object_2",
+        "var": 202
+    }
+ ],
+"number_array": [1, 2, 3, 4, 0, -1, -23],
+"string_array": ["hello", "friend", "my", "name"]
+}
