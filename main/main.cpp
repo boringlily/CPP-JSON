@@ -19,7 +19,7 @@ int main()
     std::string my_json_string{file_buffer};
     free(file_buffer);
 
-    // CPP_JSON::Reader my_file(my_json_string);
+    CPP_JSON::Reader my_file(my_json_string);
     // printf("%s", my_json_string.c_str());
 
     return 0;

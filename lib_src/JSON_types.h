@@ -1,31 +1,21 @@
 #pragma once
+#include <string>
 
-
-class iToken
+enum class TokenType
 {
- iToken() = delete;
-}; 
-
-
-class Object: public iToken
-{
-
+    num_array,
+    string_array,
+    obect_array,
+    mixed_array,
+    object,
 };
 
-
-class VarArray : public iToken
+class TokenNode
 {
+public:
 
-}; 
-
-
-class ObjectArray : public iToken
-{
-
-}; 
-
-
-class ObjectArray : public iToken
-{
+ TokenNode();
+ 
+ std::string name;
 
 }; 
