@@ -1,9 +1,6 @@
 #include <iostream>
 #include "JSON.hpp"
 
-
-
-
 int main()
 {
     FILE * JSON_FILE; 

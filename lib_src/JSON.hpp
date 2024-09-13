@@ -36,14 +36,6 @@ namespace CPP_JSON
                 token_next = ',',
                 token_start = '\"'
             };
-            char prev = ' ', current = ' ', next = ' ';
-            bool str_open{false};
-            JSONtokens prev_token{end};
-            uint32_t depth;
-            for(u32 i; i < length; i++)
-            {
-                if( i )
-            };
         };
 
         ReaderStatus FindNode();

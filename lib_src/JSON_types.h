@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include <vector>
+#include "better_types.h"
+
 
 enum class TokenType
 {
@@ -10,12 +13,26 @@ enum class TokenType
     object,
 };
 
-class TokenNode
+class Token
 {
 public:
 
- TokenNode();
- 
- std::string name;
+ Token();
 
+ std::string name;
+ std::string variable_str;
+ 
+ u32 depth{0};
 }; 
+
+class JsonNode
+{
+
+std::vector<JsonVar>
+
+};
+
+class JsonVar
+{
+
+};
