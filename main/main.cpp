@@ -1,5 +1,5 @@
 #include <iostream>
-#include "JSON.hpp"
+#include "JSON.h"
 
 int main()
 {
@@ -12,12 +12,12 @@ int main()
         return -1;
     }
     
-    fread(file_buffer, 1024, 1, JSON_FILE);
+    fread(file_buffer, 1024*4, 1, JSON_FILE);
     std::string my_json_string{file_buffer};
-    free(file_buffer);
 
     CPP_JSON::Reader my_file(my_json_string);
     // printf("%s", my_json_string.c_str());
+    free(file_buffer);
 
     return 0;
 }
