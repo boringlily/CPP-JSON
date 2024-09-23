@@ -1,6 +1,7 @@
 #include "JSON.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 namespace CPP_JSON
 {   Reader::Reader(std::string json_str)
@@ -16,13 +17,7 @@ namespace CPP_JSON
             next = ',',
             string_token = '\"'
         };
-
-        enum ParserState
-        {
-
-        };
-
-        std::string token{};
+        std::vector<char> token{};
         u32 depth{0};
         bool string_open{false};
 
@@ -38,55 +33,70 @@ namespace CPP_JSON
             for (u32 i{depth}; i > 0; i--)
             {
                 printf("\t");
-            }
+            }   
 
             printf("%s\n", token.c_str());
             token.clear();
         };
-
-        for (auto c : json_str)
+        char c{};
+        for (u32 i{0}; i < json_str.length(); i++)
         {
+            c = json_str[i];
+            constexpr bool is_esc_token = [](char &c)
+            {
+                return c == ',' || c== '{' || c == '[' || c== '}' || c == ']';
+            };
+
+            if(c < ' ' || c > '~')
+            {
+                continue;
+            }
+            
             switch (c)
             {
-
-                break;
             case object_open:
-                end_token(token, depth);
                 std::cout << "{" << std::endl;
                 depth++;
                 break;
             case object_close:
-                end_token(token, depth);
                 std::cout << "}" << std::endl;
                 depth--;
                 break;
             case array_open:
-                end_token(token, depth);
                 std::cout << "[" << std::endl;
                 depth++;
                 break;
             case array_close:
-                end_token(token, depth);
                 std::cout << "]" << std::endl;
                 depth--;
                 break;
             case assignment:
-                end_token(token, depth);
+               std::cout << std::endl << "__ASSIGN__" <<std::endl; 
                 break;
             case string_token:
                 if (string_open)
                 {
+                    string_open = false;
+                }
+                else
+                {
+                    string_open = true;
                 }
                 break;
             case next:
-                end_token(token, depth);
+                std::cout<<std::endl;
                 break;
             case ' ':
+                if(!string_open)
+                {
+                    continue;
+                }
+            case '\n':
 
                 break;
             default:
-                token.append(&c);
-                //   std::cout << "fuck\t"<< c << std::endl;
+                token.push_back(c);
+                std::cout << token.data() << std::endl;
             };
         };
 
